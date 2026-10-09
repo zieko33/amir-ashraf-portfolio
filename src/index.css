@@ -1,0 +1,41 @@
+:root {
+  font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+  color: #edf5ff;
+  background: #03111f;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+  --bg: #03111f;
+  --surface: #071c30;
+  --text: #edf5ff;
+  --muted: #a4b7cc;
+  --subtle: #8ca5bd;
+  --accent: #54adff;
+  --purple: #a091ff;
+  --line: #16334f;
+  --paper: #e5f2ff;
+  --card-text: #173b60;
+  --card-muted: #415f7d;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 24px; }
+body { margin: 0; min-width: 320px; }
+button, a { -webkit-tap-highlight-color: transparent; touch-action: manipulation; }
+button { font: inherit; cursor: pointer; color: inherit; border: 0; }
+a { color: inherit; text-decoration: none; }
+button:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+::selection { background: #54adff; color: #03111f; }
+h1,h2,h3,p { margin: 0; }
+svg { display: block; }
+img { display: block; max-width: 100%; }
+[hidden] { display: none !important; }
+[dir='rtl'] { font-family: 'Noto Sans Arabic', 'Segoe UI', Tahoma, Arial, sans-serif; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
