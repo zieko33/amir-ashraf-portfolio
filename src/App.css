@@ -15,7 +15,6 @@
 .menu-toggle { display: none; }
 .hero-background { overflow: hidden; border-bottom: 1px solid var(--line); background: radial-gradient(ellipse at 78% 50%, #0b458646, transparent 58%), linear-gradient(110deg, #03111f 10%, #05172b 80%); }
 .hero { display: grid; grid-template-columns: 1.04fr 1fr; gap: 30px; align-items: center; padding-block: 46px 38px; }
-.hero-greeting { font-size: 18px; color: #cfdef0; margin-bottom: 12px; }
 .hero h1 { font-size: clamp(48px, 5.5vw, 74px); font-weight: 750; line-height: 1.15; letter-spacing: -2.8px; }
 .hero h1 > span { color: var(--accent); }
 .hero-role { margin-top: 16px; font-size: 16px; font-weight: 600; line-height: 1.7; }
@@ -83,6 +82,8 @@ blockquote > p { font-size: 15px; line-height: 1.9; color: #e0edff; margin-top: 
 .milestone-card h3 { font-size: 14px; font-weight: 650; line-height: 1.5; }
 .milestone-card > p { margin-top: 9px; color: #b6c9de; font-size: 11px; line-height: 1.85; }
 .milestone-year { display: block; margin-top: auto; padding-top: 20px; font: 9px var(--mono); color: #a2c1e4; }
+.certificates-toggle { margin-top: 24px; }
+.award-card[hidden] { display: none; }
 .awards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .award-card { border: 1px solid #2a4d6d; border-radius: 7px; overflow: hidden; background: var(--paper); transition: transform .2s, border-color .2s; }
 .award-card:hover { border-color: #6cadde; transform: translateY(-3px); }
@@ -195,7 +196,6 @@ blockquote > p { font-size: 15px; line-height: 1.9; color: #e0edff; margin-top: 
   .language-button { padding: 8px 9px; font-size: 11px; }
   .hero { padding-block: 37px; }
   .hero h1 { font-size: 49px; }
-  .hero-greeting { font-size: 16px; }
   .hero-role { font-size: 12px; }
   .hero-intro { font-size: 12px; }
   .hero-actions { gap: 12px; }
@@ -264,7 +264,6 @@ blockquote > p { font-size: 15px; line-height: 1.9; color: #e0edff; margin-top: 
   .container { width: calc(100% - 40px); }
   .hero { grid-template-columns: 1fr; gap: 32px; padding-block: 36px 29px; }
   .hero h1 { font-size: clamp(47px, 12vw, 66px); letter-spacing: -1.8px; }
-  .hero-greeting { font-size: 17px; }
   .hero-role { font-size: 13px; margin-top: 13px; }
   .role-divider { margin-inline: 3px; }
   .hero-intro { font-size: 13px; margin-top: 17px; }

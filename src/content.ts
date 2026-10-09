@@ -29,7 +29,6 @@ interface Content {
   closeMenu: string
   language: string
   eyebrow: string
-  greeting: string
   nameParts: [string, string]
   nickname: string
   intro: string
@@ -43,7 +42,7 @@ interface Content {
   projects: Project[]
   about: { eyebrow: string; title: string; summary: string; paragraphs: string[]; quote: string; education: string; degree: string; location: string; interestsLabel: string; interests: string[] }
   journey: { eyebrow: string; title: string; intro: string; entries: { year: string; title: string; text: string }[] }
-  awards: { eyebrow: string; title: string; intro: string; view: string; newTab: string; entries: Award[] }
+  awards: { eyebrow: string; title: string; intro: string; view: string; newTab: string; viewAll: string; showFewer: string; entries: Award[] }
   next: { eyebrow: string; title: string; text: string; link: string }
   footer: string
   backToTop: string
@@ -58,7 +57,7 @@ export const content: Record<Language, Content> = {
     nav: { home: 'Home', work: 'Projects', about: 'About', awards: 'Awards', journey: 'Achievements' },
     skip: 'Skip to content', menu: 'Open navigation', closeMenu: 'Close navigation', language: 'Switch to Arabic',
     eyebrow: 'A CURIOUS MIND. A HANDS-ON APPROACH.',
-    greeting: 'Hello, I’m', nameParts: ['Amir', 'Ashraf'], nickname: 'The Little Inventor',
+    nameParts: ['Amir', 'Ashraf'], nickname: 'The Little Inventor',
     intro: 'I’m Amir, an engineering student and inventor from Cairo. I explore how electronics and thoughtful design can turn everyday challenges into something better.',
     explore: 'Explore my work', storyLink: 'The story so far', location: 'Cairo, Egypt', scroll: 'SCROLL TO EXPLORE',
     disciplines: ['Electronics', 'Mechatronics', 'Smart systems', 'Invention'],
@@ -77,7 +76,7 @@ export const content: Record<Language, Content> = {
       { year: '2021', title: 'Recognition at multiple levels', text: 'First-place recognition at district and educational-directorate levels, followed by third place nationally in the Young Inventor competition.' },
       { year: 'TODAY', title: 'Building an engineering foundation', text: 'Studying mechatronics engineering, with a continuing interest in turning inventions into practical products.' },
     ] },
-    awards: { eyebrow: 'RECOGNITION', title: 'Awards & recognition', intro: 'A selection of original certificates from invention competitions and science fairs.', view: 'View certificate', newTab: 'Opens the original PDF in a new tab', entries: [
+    awards: { eyebrow: 'RECOGNITION', title: 'Awards & recognition', intro: 'A selection of original certificates from invention competitions and science fairs.', view: 'View certificate', viewAll: 'View all certificates', showFewer: 'Show fewer certificates', newTab: 'Opens the original PDF in a new tab', entries: [
       { file: 'young-inventor-national', title: 'Young Inventor · National third place', issuer: 'New Cairo Educational Administration', year: '2021' },
       { file: 'young-inventor-governorate', title: 'Young Inventor · Directorate first place', issuer: 'New Cairo Educational Administration', year: '2021' },
       { file: 'young-inventor-district', title: 'Young Inventor · District first place', issuer: 'New Cairo Educational Administration', year: '2021' },
@@ -93,7 +92,7 @@ export const content: Record<Language, Content> = {
     portraitAlt: 'أمير أشرف مبتسمًا، يرتدي نظارة وقميصًا أبيض', readMore: 'اقرأ المزيد', readLess: 'عرض أقل',
     nav: { home: 'الرئيسية', work: 'المشاريع', about: 'من أنا', awards: 'الجوائز', journey: 'الإنجازات' },
     skip: 'انتقل إلى المحتوى', menu: 'افتح قائمة التنقل', closeMenu: 'أغلق قائمة التنقل', language: 'Switch to English',
-    eyebrow: 'عقل فضولي. وشغف بالتجربة.', greeting: 'مرحبًا، أنا', nameParts: ['أمير', 'أشرف'], nickname: 'المخترع الصغير',
+    eyebrow: 'عقل فضولي. وشغف بالتجربة.', nameParts: ['أمير', 'أشرف'], nickname: 'المخترع الصغير',
     intro: 'أنا أمير، طالب هندسة ومخترع من القاهرة. أستكشف كيف يمكن للإلكترونيات والتصميم المدروس أن يقدّما حلولًا أفضل للتحديات اليومية.',
     explore: 'استكشف مشاريعي', storyLink: 'تعرّف على قصتي', location: 'القاهرة، مصر', scroll: 'اكتشف المزيد',
     disciplines: ['الإلكترونيات', 'الميكاترونكس', 'الأنظمة الذكية', 'الابتكار'],
@@ -112,7 +111,7 @@ export const content: Record<Language, Content> = {
       { year: '٢٠٢١', title: 'إنجازات على مستويات متعددة', text: 'المركز الأول على مستوى الإدارة والمديرية التعليمية، ثم المركز الثالث على مستوى الجمهورية في مسابقة المخترع الصغير.' },
       { year: 'اليوم', title: 'بناء أساس هندسي', text: 'دراسة هندسة الميكاترونكس، مع استمرار اهتمامي بتحويل الاختراعات إلى منتجات عملية.' },
     ] },
-    awards: { eyebrow: 'تكريم أعتز به', title: 'الجوائز والتكريم', intro: 'مجموعة مختارة من الشهادات الأصلية لمسابقات الاختراع ومعارض العلوم والهندسة.', view: 'عرض الشهادة', newTab: 'يفتح ملف الشهادة الأصلي في علامة تبويب جديدة', entries: [
+    awards: { eyebrow: 'تكريم أعتز به', title: 'الجوائز والتكريم', intro: 'مجموعة مختارة من الشهادات الأصلية لمسابقات الاختراع ومعارض العلوم والهندسة.', view: 'عرض الشهادة', viewAll: 'عرض جميع الشهادات', showFewer: 'عرض شهادات أقل', newTab: 'يفتح ملف الشهادة الأصلي في علامة تبويب جديدة', entries: [
       { file: 'young-inventor-national', title: 'المخترع الصغير · الثالث على الجمهورية', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },
       { file: 'young-inventor-governorate', title: 'المخترع الصغير · الأول على المديرية', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },
       { file: 'young-inventor-district', title: 'المخترع الصغير · الأول على الإدارة', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },

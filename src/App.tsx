@@ -29,6 +29,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [expandedProject, setExpandedProject] = useState<string | null>(null)
   const [aboutExpanded, setAboutExpanded] = useState(false)
+  const [certificatesExpanded, setCertificatesExpanded] = useState(false)
   const t = content[language]
   const navLinks = [
     ['#top', t.nav.home], ['#about', t.nav.about], ['#journey', t.nav.journey],
@@ -79,7 +80,6 @@ function App() {
       <div className="hero-background">
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
-            <p className="hero-greeting">{t.greeting}</p>
             <h1 id="hero-title"><span>{t.nameParts[0]}</span> {t.nameParts[1]}</h1>
             <p className="hero-role"><span>{t.nickname}</span><span className="role-divider" aria-hidden="true"> / </span>{t.role}</p>
             <p className="hero-intro">{t.intro}</p>
@@ -136,11 +136,11 @@ function App() {
       <section className="section bordered-section" id="recognition" aria-labelledby="awards-title">
         <div className="container">
           <SectionHeading id="awards-title" icon="medal" eyebrow={t.awards.eyebrow} title={t.awards.title} intro={t.awards.intro} />
-          <div className="awards-grid">
-            {t.awards.entries.map(award => {
+          <div className="awards-grid" id="certificates-grid">
+            {t.awards.entries.map((award, index) => {
               const image = certificateImages[award.file]
               const pdfUrl = `/awards/${award.file}.pdf?v=${image.pdfVersion}`
-              return <article className="award-card" key={award.file}>
+              return <article className="award-card" key={award.file} hidden={!certificatesExpanded && index >= 3}>
               <a className="certificate-image" style={{ aspectRatio: `${image.width} / ${image.height}` }} href={pdfUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.awards.view}: ${award.title}. ${t.awards.newTab}`}>
                 <img src={`/awards/${award.file}.webp?v=${image.imageVersion}`} alt={`${award.title} — ${award.issuer}`} width={image.width} height={image.height} loading="lazy" />
                 <span className="certificate-overlay"><span>{t.awards.view}<Arrow diagonal /></span></span>
@@ -148,6 +148,9 @@ function App() {
               <div className="award-meta"><span className="award-year">{award.year}</span><h3>{award.title}</h3><p>{award.issuer}</p><a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="certificate-link" aria-label={`${t.awards.view}: ${award.title}. ${t.awards.newTab}`}>{t.awards.view}<Arrow diagonal /></a></div>
             </article>})}
           </div>
+          {t.awards.entries.length > 3 && <button className="read-more-button certificates-toggle" type="button" aria-expanded={certificatesExpanded} aria-controls="certificates-grid" onClick={() => setCertificatesExpanded(!certificatesExpanded)}>
+            {certificatesExpanded ? t.awards.showFewer : t.awards.viewAll}<span aria-hidden="true">{certificatesExpanded ? '−' : '+'}</span>
+          </button>}
         </div>
       </section>
 
