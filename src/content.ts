@@ -42,7 +42,7 @@ interface Content {
   projects: Project[]
   about: { eyebrow: string; title: string; summary: string; paragraphs: string[]; quote: string; education: string; degree: string; location: string; interestsLabel: string; interests: string[] }
   journey: { eyebrow: string; title: string; intro: string; entries: { year: string; title: string; text: string }[] }
-  awards: { eyebrow: string; title: string; intro: string; view: string; newTab: string; viewAll: string; showFewer: string; entries: Award[] }
+  awards: { eyebrow: string; title: string; intro: string; view: string; newTab: string; viewAll: string; entries: Award[] }
   next: { eyebrow: string; title: string; text: string; link: string }
   footer: string
   backToTop: string
@@ -76,13 +76,31 @@ export const content: Record<Language, Content> = {
       { year: '2021', title: 'Recognition at multiple levels', text: 'First-place recognition at district and educational-directorate levels, followed by third place nationally in the Young Inventor competition.' },
       { year: 'TODAY', title: 'Building an engineering foundation', text: 'Studying mechatronics engineering, with a continuing interest in turning inventions into practical products.' },
     ] },
-    awards: { eyebrow: 'RECOGNITION', title: 'Awards & recognition', intro: 'A selection of original certificates from invention competitions and science fairs.', view: 'View certificate', viewAll: 'View all certificates', showFewer: 'Show fewer certificates', newTab: 'Opens the original PDF in a new tab', entries: [
+    awards: { eyebrow: 'RECOGNITION', title: 'Awards & recognition', intro: 'A selection of original certificates from invention competitions and science fairs.', view: 'View certificate', viewAll: 'View all certificates', newTab: 'Opens the original PDF in a new tab', entries: [
       { file: 'young-inventor-national', title: 'Young Inventor · National third place', issuer: 'New Cairo Educational Administration', year: '2021' },
       { file: 'young-inventor-governorate', title: 'Young Inventor · Directorate first place', issuer: 'New Cairo Educational Administration', year: '2021' },
       { file: 'young-inventor-district', title: 'Young Inventor · District first place', issuer: 'New Cairo Educational Administration', year: '2021' },
       { file: 'science-fair-2020', title: 'Cairo Science & Engineering Fair', issuer: 'Certificate of participation', year: '2020' },
       { file: 'science-fair-2019', title: 'New Cairo Science & Engineering Fair', issuer: 'Certificate of participation', year: '2019' },
       { file: 'egypt-innovates', title: 'Scientific & Innovation Excellence', issuer: 'Egypt Innovates Foundation', year: 'RECOGNITION' },
+      {"file": "certificate-0001", "title": "Innovation and invention recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0002", "title": "Young Inventor competition recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0004", "title": "Young Inventor gold medal recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0005", "title": "Educational directorate recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0006", "title": "Young Inventor national competition recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0007", "title": "Intel ISEF science fair participation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0008", "title": "Scientific activities recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0009", "title": "Cairo science and engineering fair participation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0010", "title": "Science and engineering fair recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0011", "title": "Science and engineering fair appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0012", "title": "Young Inventor gold medal appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0014", "title": "Young Inventor appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0015", "title": "Science and engineering exhibition participation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0017", "title": "Young Inventor electronics project recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0018", "title": "Young Inventor first-place recognition", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0019", "title": "Scientific activities appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0021", "title": "Science and engineering exhibition appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
+      {"file": "certificate-0023", "title": "Technology development appreciation", "issuer": "Award certificate", "year": "RECOGNITION"},
     ] },
     next: { eyebrow: 'WHAT COMES NEXT', title: 'Good ideas grow through collaboration.', text: 'I’m interested in learning from engineering teams and collaborating with people who can help develop thoughtful inventions into practical products.', link: 'Take another look at my work' },
     footer: 'Built on curiosity. Made for possibility.', backToTop: 'Back to top', description: 'Meet Amir Ashraf, a mechatronics engineering student and inventor from Cairo. Explore his electronics, wearable technology, automotive concepts, and scientific achievements.',
@@ -111,13 +129,31 @@ export const content: Record<Language, Content> = {
       { year: '٢٠٢١', title: 'إنجازات على مستويات متعددة', text: 'المركز الأول على مستوى الإدارة والمديرية التعليمية، ثم المركز الثالث على مستوى الجمهورية في مسابقة المخترع الصغير.' },
       { year: 'اليوم', title: 'بناء أساس هندسي', text: 'دراسة هندسة الميكاترونكس، مع استمرار اهتمامي بتحويل الاختراعات إلى منتجات عملية.' },
     ] },
-    awards: { eyebrow: 'تكريم أعتز به', title: 'الجوائز والتكريم', intro: 'مجموعة مختارة من الشهادات الأصلية لمسابقات الاختراع ومعارض العلوم والهندسة.', view: 'عرض الشهادة', viewAll: 'عرض جميع الشهادات', showFewer: 'عرض شهادات أقل', newTab: 'يفتح ملف الشهادة الأصلي في علامة تبويب جديدة', entries: [
+    awards: { eyebrow: 'تكريم أعتز به', title: 'الجوائز والتكريم', intro: 'مجموعة مختارة من الشهادات الأصلية لمسابقات الاختراع ومعارض العلوم والهندسة.', view: 'عرض الشهادة', viewAll: 'عرض جميع الشهادات', newTab: 'يفتح ملف الشهادة الأصلي في علامة تبويب جديدة', entries: [
       { file: 'young-inventor-national', title: 'المخترع الصغير · الثالث على الجمهورية', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },
       { file: 'young-inventor-governorate', title: 'المخترع الصغير · الأول على المديرية', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },
       { file: 'young-inventor-district', title: 'المخترع الصغير · الأول على الإدارة', issuer: 'إدارة القاهرة الجديدة التعليمية', year: '٢٠٢١' },
       { file: 'science-fair-2020', title: 'معرض القاهرة للعلوم والهندسة', issuer: 'شهادة مشاركة', year: '٢٠٢٠' },
       { file: 'science-fair-2019', title: 'معرض القاهرة الجديدة للعلوم والهندسة', issuer: 'شهادة مشاركة', year: '٢٠١٩' },
       { file: 'egypt-innovates', title: 'التميز العلمي والابتكاري', issuer: 'مؤسسة مصر تبتكر', year: 'تكريم' },
+      {"file": "certificate-0001", "title": "تكريم في الابتكار والاختراع", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0002", "title": "تكريم في مسابقة المخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0004", "title": "تكريم بالميدالية الذهبية في مسابقة المخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0005", "title": "تكريم من المديرية التعليمية", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0006", "title": "تكريم في مسابقة المخترع الصغير على مستوى الجمهورية", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0007", "title": "مشاركة في معرض العلوم إنتل آيسف", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0008", "title": "تكريم في الأنشطة العلمية", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0009", "title": "مشاركة في معرض القاهرة للعلوم والهندسة", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0010", "title": "تكريم في معرض العلوم والهندسة", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0011", "title": "شهادة تقدير في معرض العلوم والهندسة", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0012", "title": "شهادة تقدير بالميدالية الذهبية للمخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0014", "title": "شهادة تقدير للمخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0015", "title": "مشاركة في معرض العلوم والهندسة", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0017", "title": "تكريم لمشروع إلكترونيات في مسابقة المخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0018", "title": "تكريم بالمركز الأول في مسابقة المخترع الصغير", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0019", "title": "شهادة تقدير في الأنشطة العلمية", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0021", "title": "شهادة تقدير في معرض العلوم والهندسة", "issuer": "شهادة تكريم", "year": "تكريم"},
+      {"file": "certificate-0023", "title": "شهادة تقدير من التطوير التكنولوجي", "issuer": "شهادة تكريم", "year": "تكريم"},
     ] },
     next: { eyebrow: 'الخطوة القادمة', title: 'الأفكار الجيدة تنمو بالتعاون.', text: 'أتطلع للتعلم من الفرق الهندسية والتعاون مع أشخاص يساعدون على تطوير الاختراعات المدروسة وتحويلها إلى منتجات عملية.', link: 'ألقِ نظرة أخرى على مشاريعي' },
     footer: 'البداية فضول. والهدف إمكانيات جديدة.', backToTop: 'عد إلى الأعلى', description: 'تعرّف على أمير أشرف، طالب هندسة الميكاترونكس ومخترع من القاهرة. استكشف أفكاره في الإلكترونيات والتقنيات القابلة للارتداء والسيارات وإنجازاته العلمية.',

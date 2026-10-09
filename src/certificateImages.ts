@@ -42,5 +42,113 @@ export const certificateImages: Record<string, CertificateImage> = {
     "height": 708,
     "imageVersion": "1f3cbbb92872",
     "pdfVersion": "35662b5b40a5"
+  },
+  "certificate-0001": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "50a9a89b61ee",
+    "pdfVersion": "fdd957b6eea7"
+  },
+  "certificate-0002": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "5a640cf83824",
+    "pdfVersion": "f2cc8d735a65"
+  },
+  "certificate-0004": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "303bd442faa9",
+    "pdfVersion": "22fdf399b776"
+  },
+  "certificate-0005": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "ec1f9e1b7249",
+    "pdfVersion": "8e43ae72ecc9"
+  },
+  "certificate-0006": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "0a7f34dc087a",
+    "pdfVersion": "10745d618514"
+  },
+  "certificate-0007": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "a60432181eb4",
+    "pdfVersion": "33091be36c8b"
+  },
+  "certificate-0008": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "0b4c27b737e1",
+    "pdfVersion": "ee5c28aa7678"
+  },
+  "certificate-0009": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "b3fbd81b578d",
+    "pdfVersion": "645af455be87"
+  },
+  "certificate-0010": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "c9c9e2236d8f",
+    "pdfVersion": "0a2b5e0561ec"
+  },
+  "certificate-0011": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "005c1259a4bd",
+    "pdfVersion": "b21e32732735"
+  },
+  "certificate-0012": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "86e1e2ab407a",
+    "pdfVersion": "f92be37cc457"
+  },
+  "certificate-0014": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "520637366191",
+    "pdfVersion": "121135dd74c3"
+  },
+  "certificate-0015": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "c99523a9f3e0",
+    "pdfVersion": "39234e9c00da"
+  },
+  "certificate-0017": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "2b48b0b7d19b",
+    "pdfVersion": "c392958e81e3"
+  },
+  "certificate-0018": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "d8e67a913f5f",
+    "pdfVersion": "e14f6d44ccc8"
+  },
+  "certificate-0019": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "4fce29b4250d",
+    "pdfVersion": "9885919487bf"
+  },
+  "certificate-0021": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "1c9e9d264046",
+    "pdfVersion": "d74084b66f62"
+  },
+  "certificate-0023": {
+    "width": 1000,
+    "height": 708,
+    "imageVersion": "96aa1f1f9619",
+    "pdfVersion": "b5d278ffed39"
   }
 }

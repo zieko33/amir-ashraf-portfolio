@@ -1,6 +1,6 @@
 # Amir Ashraf’s portfolio
 
-A bilingual English/Arabic portfolio for Amir Ashraf, a mechatronics engineering student. Built with React, TypeScript, and Vite, with Amir’s supplied portrait, responsive layouts, bilingual Read more controls, invention illustrations, achievement cards, and six award certificates.
+A bilingual English/Arabic portfolio for Amir Ashraf, a mechatronics engineering student. Built with React, TypeScript, and Vite, with Amir’s supplied portrait, responsive layouts, bilingual Read more controls, invention illustrations, achievement cards, and all 24 supplied award certificates.
 
 ## Local development
 
@@ -19,7 +19,9 @@ bun run preview
 
 ## Content
 
-Edit `src/content.ts` to update both languages. English is the default; the language switch updates the document language and direction and saves the preference locally. Selected certificates live in `public/awards/` as optimized WebP previews and upright PDFs.
+Edit `src/content.ts` to update both languages. English is the default; the language switch updates the document language and direction and saves the preference locally. All certificates live in `public/awards/` as optimized WebP previews and upright PDFs.
+
+The homepage features three certificates. React Router serves the complete bilingual gallery at `/certificates`. Production hosting must rewrite non-asset paths to `index.html` so direct links and page refreshes work.
 
 ### Rotate certificates
 
@@ -58,4 +60,4 @@ If `origin` already exists, use `git remote set-url origin git@github.com:zieko3
 
 ## Validation
 
-The production build and ESLint pass. Both languages were rendered to HTML and checked for section targets, project controls, translations, and the existence of all six certificate previews and PDFs. Visual browser and live interaction checks remain unverified because this environment prevents local server binding and Chromium startup.
+The production build and ESLint pass. Both languages were rendered to HTML and checked for section targets, project controls, translations, and the existence of all 24 certificate previews and PDFs. Visual browser and live interaction checks remain unverified because this environment prevents local server binding and Chromium startup.

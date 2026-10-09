@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { content, type Language } from './content'
-import { certificateImages } from './certificateImages'
+import { Link, Route, Routes, useLocation } from 'react-router-dom'
+import { CertificateGallery } from './CertificateGallery'
 import { Arrow, Icon, ProjectIllustration, type IconName } from './Illustrations'
 import amirPortrait from './assets/amir-ashraf.png'
 import './App.css'
@@ -29,20 +30,28 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [expandedProject, setExpandedProject] = useState<string | null>(null)
   const [aboutExpanded, setAboutExpanded] = useState(false)
-  const [certificatesExpanded, setCertificatesExpanded] = useState(false)
+  const location = useLocation()
   const t = content[language]
   const navLinks = [
-    ['#top', t.nav.home], ['#about', t.nav.about], ['#journey', t.nav.journey],
-    ['#recognition', t.nav.awards], ['#work', t.nav.work],
+    ['/#top', t.nav.home], ['/#about', t.nav.about], ['/#journey', t.nav.journey],
+    ['/certificates', t.nav.awards], ['/#work', t.nav.work],
   ]
+
+  useEffect(() => {
+    if (location.hash) {
+      requestAnimationFrame(() => document.getElementById(location.hash.slice(1))?.scrollIntoView())
+    } else {
+      window.scrollTo(0, 0)
+    }
+  }, [location])
 
   useEffect(() => {
     document.documentElement.lang = language
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
-    document.title = `${t.name} — ${t.role}`
+    document.title = location.pathname === '/certificates' ? `${t.awards.title} — ${t.name}` : `${t.name} — ${t.role}`
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.description)
     try { localStorage.setItem('amir-language', language) } catch { /* Switching works without storage. */ }
-  }, [language, t])
+  }, [language, t, location.pathname])
 
   useEffect(() => {
     if (!menuOpen) return
@@ -60,11 +69,11 @@ function App() {
     <a className="skip-link" href="#main">{t.skip}</a>
     <header className="site-header" id="top">
       <div className="header-inner container">
-        <a className="brand" href="#top" aria-label={t.name} onClick={() => setMenuOpen(false)}>
+        <Link className="brand" to="/#top" aria-label={t.name} onClick={() => setMenuOpen(false)}>
           <span className="brand-mark" aria-hidden="true">AA</span><span>{t.name}</span>
-        </a>
+        </Link>
         <nav id="primary-navigation" className={`navigation ${menuOpen ? 'is-open' : ''}`} aria-label={language === 'en' ? 'Main navigation' : 'التنقل الرئيسي'}>
-          {navLinks.map(([href, label]) => <a href={href} key={href} onClick={() => setMenuOpen(false)}>{label}</a>)}
+          {navLinks.map(([href, label]) => <Link to={href} key={href} onClick={() => setMenuOpen(false)}>{label}</Link>)}
         </nav>
         <div className="header-actions">
           <button className="language-button" type="button" aria-label={t.language} onClick={() => { setLanguage(language === 'en' ? 'ar' : 'en'); setMenuOpen(false) }}>
@@ -77,6 +86,8 @@ function App() {
     </header>
 
     <main id="main" tabIndex={-1}>
+      <Routes>
+      <Route path="/" element={<>
       <div className="hero-background">
         <section className="hero container" aria-labelledby="hero-title">
           <div className="hero-copy">
@@ -136,21 +147,8 @@ function App() {
       <section className="section bordered-section" id="recognition" aria-labelledby="awards-title">
         <div className="container">
           <SectionHeading id="awards-title" icon="medal" eyebrow={t.awards.eyebrow} title={t.awards.title} intro={t.awards.intro} />
-          <div className="awards-grid" id="certificates-grid">
-            {t.awards.entries.map((award, index) => {
-              const image = certificateImages[award.file]
-              const pdfUrl = `/awards/${award.file}.pdf?v=${image.pdfVersion}`
-              return <article className="award-card" key={award.file} hidden={!certificatesExpanded && index >= 3}>
-              <a className="certificate-image" style={{ aspectRatio: `${image.width} / ${image.height}` }} href={pdfUrl} target="_blank" rel="noopener noreferrer" aria-label={`${t.awards.view}: ${award.title}. ${t.awards.newTab}`}>
-                <img src={`/awards/${award.file}.webp?v=${image.imageVersion}`} alt={`${award.title} — ${award.issuer}`} width={image.width} height={image.height} loading="lazy" />
-                <span className="certificate-overlay"><span>{t.awards.view}<Arrow diagonal /></span></span>
-              </a>
-              <div className="award-meta"><span className="award-year">{award.year}</span><h3>{award.title}</h3><p>{award.issuer}</p><a href={pdfUrl} target="_blank" rel="noopener noreferrer" className="certificate-link" aria-label={`${t.awards.view}: ${award.title}. ${t.awards.newTab}`}>{t.awards.view}<Arrow diagonal /></a></div>
-            </article>})}
-          </div>
-          {t.awards.entries.length > 3 && <button className="read-more-button certificates-toggle" type="button" aria-expanded={certificatesExpanded} aria-controls="certificates-grid" onClick={() => setCertificatesExpanded(!certificatesExpanded)}>
-            {certificatesExpanded ? t.awards.showFewer : t.awards.viewAll}<span aria-hidden="true">{certificatesExpanded ? '−' : '+'}</span>
-          </button>}
+          <CertificateGallery language={language} limit={3} />
+          <Link className="read-more-button certificates-toggle" to="/certificates">{t.awards.viewAll}<Arrow /></Link>
         </div>
       </section>
 
@@ -175,10 +173,18 @@ function App() {
       </section>
 
       <section className="next-section section" aria-labelledby="next-title"><div className="container next-inner"><span className="next-symbol" aria-hidden="true">+</span><div><p className="eyebrow">{t.next.eyebrow}</p><h2 id="next-title">{t.next.title}</h2><p className="next-description">{t.next.text}</p></div><a className="button button-secondary" href="#work">{t.next.link}<Arrow diagonal /></a></div></section>
+      </>} />
+      <Route path="/certificates" element={<section className="section certificates-page" aria-labelledby="certificates-title"><div className="container">
+        <Link className="read-more-button" to="/#recognition">{t.nav.home}<Arrow /></Link>
+        <SectionHeading id="certificates-title" icon="medal" eyebrow={t.awards.eyebrow} title={t.awards.title} intro={t.awards.intro} />
+        <CertificateGallery language={language} />
+      </div></section>} />
+      <Route path="*" element={<section className="section container"><h1>404</h1><Link className="read-more-button" to="/">{t.nav.home}</Link></section>} />
+      </Routes>
     </main>
 
     <footer className="site-footer"><div className="container">
-      <div className="footer-top"><a className="brand" href="#top"><span className="brand-mark" aria-hidden="true">AA</span><span>{t.name}<span className="footer-tagline">{t.nickname}</span></span></a><nav className="footer-navigation" aria-label={language === 'en' ? 'Footer navigation' : 'التنقل في تذييل الصفحة'}>{navLinks.map(([href, label]) => <a key={href} href={href}>{label}</a>)}</nav><a className="back-to-top" href="#top" aria-label={t.backToTop}><span aria-hidden="true">↑</span></a></div>
+      <div className="footer-top"><Link className="brand" to="/#top"><span className="brand-mark" aria-hidden="true">AA</span><span>{t.name}<span className="footer-tagline">{t.nickname}</span></span></Link><nav className="footer-navigation" aria-label={language === 'en' ? 'Footer navigation' : 'التنقل في تذييل الصفحة'}>{navLinks.map(([href, label]) => <Link key={href} to={href}>{label}</Link>)}</nav><Link className="back-to-top" to={`${location.pathname}#top`} aria-label={t.backToTop}><span aria-hidden="true">↑</span></Link></div>
       <p className="footer-copyright">© {new Date().getFullYear()} {t.name}<span aria-hidden="true"> · </span>{t.footer}</p>
     </div></footer>
   </>

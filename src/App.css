@@ -83,7 +83,6 @@ blockquote > p { font-size: 15px; line-height: 1.9; color: #e0edff; margin-top: 
 .milestone-card > p { margin-top: 9px; color: #b6c9de; font-size: 11px; line-height: 1.85; }
 .milestone-year { display: block; margin-top: auto; padding-top: 20px; font: 9px var(--mono); color: #a2c1e4; }
 .certificates-toggle { margin-top: 24px; }
-.award-card[hidden] { display: none; }
 .awards-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
 .award-card { border: 1px solid #2a4d6d; border-radius: 7px; overflow: hidden; background: var(--paper); transition: transform .2s, border-color .2s; }
 .award-card:hover { border-color: #6cadde; transform: translateY(-3px); }
