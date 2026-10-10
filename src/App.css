@@ -43,7 +43,6 @@
 .read-more-button { display: inline-flex; align-items: center; justify-content: space-between; gap: 20px; color: #86c6ff; background: transparent; padding: 10px 0; min-height: 44px; font-size: 12px; font-weight: 650; margin-top: 8px; }
 .read-more-button > span { font-size: 22px; font-weight: 400; line-height: 1; }
 .read-more-button:hover { color: #c1e3ff; }
-#about-details .about-paragraph { color: #b4c9dd; }
 .section { padding-block: 42px; }
 .bordered-section { border-top: 1px solid var(--line); }
 .eyebrow { color: #8bbfec; font: 9px/1.7 var(--mono); letter-spacing: 1.1px; margin-bottom: 5px; }
@@ -349,4 +348,26 @@ blockquote > p { font-size: 15px; line-height: 1.9; color: #e0edff; margin-top: 
   .certificate-link { font-size: 12px; }
   [dir='rtl'] .brand { font-size: 16px; }
   [dir='rtl'] .hero-role { font-size: 12px; }
+}
+
+.biography-header { display: flex; align-items: center; justify-content: space-between; gap: 32px; padding-block: 28px 36px; border-bottom: 1px solid var(--line); }
+.biography-header h1 { font-size: clamp(36px, 5vw, 56px); line-height: 1.2; }
+.biography-header img { width: 150px; height: 170px; object-fit: cover; border: 1px solid #476782; border-radius: 12px; }
+.biography-layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); align-items: start; gap: 48px; padding-block: 32px; }
+.biography-navigation { position: sticky; top: 24px; display: flex; flex-direction: column; gap: 10px; }
+.biography-navigation a { padding: 12px 14px; border: 1px solid var(--line); border-radius: 6px; color: #bccce0; font-size: 13px; line-height: 1.7; }
+.biography-navigation a:hover { color: var(--accent); border-color: var(--accent); }
+.biography-navigation .certificate-link { margin-top: 12px; display: flex; align-items: center; gap: 12px; }
+.biography-content { max-width: 780px; min-width: 0; }
+.biography-section + .biography-section { margin-top: 40px; padding-top: 32px; border-top: 1px solid var(--line); }
+.biography-section h2 { font-size: 27px; line-height: 1.5; color: #eef5ff; scroll-margin-top: 24px; }
+.biography-text { white-space: pre-wrap; overflow-wrap: anywhere; font-size: 16px; color: #c0cede; line-height: 2; margin-top: 16px; }
+@media (max-width: 760px) {
+  .biography-layout { grid-template-columns: 1fr; gap: 32px; }
+  .biography-navigation { position: static; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .biography-navigation .certificate-link { margin-top: 0; grid-column: 1 / -1; }
+  .biography-header { gap: 18px; }
+  .biography-header img { width: 95px; height: 120px; }
+  .biography-header .hero-role { font-size: 12px; }
+  .biography-text { font-size: 15px; }
 }

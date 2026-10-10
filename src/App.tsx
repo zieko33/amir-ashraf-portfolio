@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { content, type Language } from './content'
 import { Link, Route, Routes, useLocation } from 'react-router-dom'
 import { CertificateGallery } from './CertificateGallery'
+import { AboutPage } from './AboutPage'
 import { Arrow, Icon, ProjectIllustration, type IconName } from './Illustrations'
 import amirPortrait from './assets/amir-ashraf.png'
 import './App.css'
@@ -29,11 +30,10 @@ function App() {
   const [language, setLanguage] = useState<Language>(readLanguage)
   const [menuOpen, setMenuOpen] = useState(false)
   const [expandedProject, setExpandedProject] = useState<string | null>(null)
-  const [aboutExpanded, setAboutExpanded] = useState(false)
   const location = useLocation()
   const t = content[language]
   const navLinks = [
-    ['/#top', t.nav.home], ['/#about', t.nav.about], ['/#journey', t.nav.journey],
+    ['/#top', t.nav.home], ['/about', t.nav.about], ['/#journey', t.nav.journey],
     ['/certificates', t.nav.awards], ['/#work', t.nav.work],
   ]
 
@@ -48,7 +48,7 @@ function App() {
   useEffect(() => {
     document.documentElement.lang = language
     document.documentElement.dir = language === 'ar' ? 'rtl' : 'ltr'
-    document.title = location.pathname === '/certificates' ? `${t.awards.title} — ${t.name}` : `${t.name} — ${t.role}`
+    document.title = location.pathname === '/about' ? `${t.about.title} — ${t.name}` : location.pathname === '/certificates' ? `${t.awards.title} — ${t.name}` : `${t.name} — ${t.role}`
     document.querySelector('meta[name="description"]')?.setAttribute('content', t.description)
     try { localStorage.setItem('amir-language', language) } catch { /* Switching works without storage. */ }
   }, [language, t, location.pathname])
@@ -96,7 +96,7 @@ function App() {
             <p className="hero-intro">{t.intro}</p>
             <div className="hero-actions">
               <a className="button button-primary" href="#work">{t.explore}<Arrow /></a>
-              <a className="button button-secondary" href="#about">{t.storyLink}<Arrow diagonal /></a>
+              <Link className="button button-secondary" to="/about">{t.storyLink}<Arrow diagonal /></Link>
             </div>
             <div className="hero-location"><Icon name="pin" />{t.location}<span className="location-divider" />{t.disciplines[0]} · {t.disciplines[1]}</div>
           </div>
@@ -113,12 +113,7 @@ function App() {
           <div className="about-copy">
             <div className="about-heading"><span className="section-icon"><Icon name="person" /></span><div><p className="eyebrow">{t.about.eyebrow}</p><h2 id="about-title">{t.about.title}</h2></div></div>
             <p className="about-paragraph">{t.about.summary}</p>
-            <div id="about-details" hidden={!aboutExpanded}>
-              {t.about.paragraphs.map(paragraph => <p className="about-paragraph" key={paragraph}>{paragraph}</p>)}
-            </div>
-            <button className="read-more-button" type="button" aria-expanded={aboutExpanded} aria-controls="about-details" aria-label={`${aboutExpanded ? t.readLess : t.readMore}: ${t.about.title}`} onClick={() => setAboutExpanded(!aboutExpanded)}>
-              {aboutExpanded ? t.readLess : t.readMore}<span aria-hidden="true">{aboutExpanded ? '−' : '+'}</span>
-            </button>
+            <Link className="read-more-button" to="/about">{t.readMore}<Arrow /></Link>
             <div className="about-facts">
               <div className="about-fact"><Icon name="graduate" /><div><p className="fact-label">{t.about.education}</p><h3>{t.about.degree}</h3></div></div>
               <div className="about-fact"><Icon name="pin" /><div><p className="fact-label">{language === 'en' ? 'LOCATION' : 'المكان'}</p><p>{t.location}</p></div></div>
@@ -174,6 +169,7 @@ function App() {
 
       <section className="next-section section" aria-labelledby="next-title"><div className="container next-inner"><span className="next-symbol" aria-hidden="true">+</span><div><p className="eyebrow">{t.next.eyebrow}</p><h2 id="next-title">{t.next.title}</h2><p className="next-description">{t.next.text}</p></div><a className="button button-secondary" href="#work">{t.next.link}<Arrow diagonal /></a></div></section>
       </>} />
+      <Route path="/about" element={<AboutPage language={language} />} />
       <Route path="/certificates" element={<section className="section certificates-page" aria-labelledby="certificates-title"><div className="container">
         <Link className="read-more-button" to="/#recognition">{t.nav.home}<Arrow /></Link>
         <SectionHeading id="certificates-title" icon="medal" eyebrow={t.awards.eyebrow} title={t.awards.title} intro={t.awards.intro} />

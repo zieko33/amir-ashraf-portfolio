@@ -21,6 +21,8 @@ bun run preview
 
 Edit `src/content.ts` to update both languages. English is the default; the language switch updates the document language and direction and saves the preference locally. All certificates live in `public/awards/` as optimized WebP previews and upright PDFs.
 
+The full bilingual biography is available at `/about`, with the complete supplied Arabic text preserved in `src/biography/ar.txt` and its English translation in `src/biography/en.txt`. The navigation, hero story link, and homepage About preview open this page.
+
 The homepage features three certificates. React Router serves the complete bilingual gallery at `/certificates`. Production hosting must rewrite non-asset paths to `index.html` so direct links and page refreshes work.
 
 ### Rotate certificates
